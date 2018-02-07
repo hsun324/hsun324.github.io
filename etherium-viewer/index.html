@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mining Rigs</title>
+<style>
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+}
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin: 5px auto;
+}
+tr:nth-child(even) {
+    background: #EEE;
+}
+th {
+    border-bottom: 1px solid black;
+    width: 125px;
+}
+th, td {
+    text-align: center;
+    padding: 5px;
+}
+div {
+    text-align: center;
+}
+div#msg {
+    font-size: 75%;
+}
+</style>
+<script type="text/javascript">
+function time_ago(t) {
+    return ((new Date() - t) / (60 * 1000)).toFixed(0) + " min(s) ago";
+}
+function format_hashrate(hr) {
+    if (hr >= 1e9) return (hr / 1e9).toFixed(1) + " GH/s";
+    if (hr >= 1e6) return (hr / 1e6).toFixed(1) + " MH/s";
+    if (hr >= 1e3) return (hr / 1e3).toFixed(1) + " kH/s";
+    return hr.toFixed(1) + " H/s";
+}
+
+function create_td(content) {
+    var text = document.createTextNode(content);
+    var cell = document.createElement("td");
+
+    cell.appendChild(text);
+    return cell;
+}
+function create_element(data) {
+    var row = document.createElement("tr");
+
+    var shareDenom = data.validShares + data.invalidShares + data.staleShares;
+
+    row.appendChild(create_td(data.worker));
+    row.appendChild(create_td(format_hashrate(data.currentHashrate)));
+    row.appendChild(create_td(format_hashrate(data.averageHashrate)));
+    row.appendChild(create_td((data.validShares / shareDenom * 100).toFixed(1) + "%"));
+    row.appendChild(create_td((data.staleShares / shareDenom * 100).toFixed(1) + "%"));
+    row.appendChild(create_td(time_ago(new Date(data.lastSeen * 1000))));
+
+    return row;
+}
+
+function render(data) {
+    if (data.status == "OK") {
+        var body = document.getElementById("data");
+        while (body.firstChild)
+            body.removeChild(body.firstChild);
+
+        var rigs = data.data;
+        for (var i = 0; i < rigs.length; i++) {
+            body.appendChild(create_element(rigs[i]));
+        }
+
+        var last = document.getElementById("last");
+        last.innerHTML = new Date();
+    }
+}
+
+function render_error(error) {
+    var body = document.getElementById("data");
+    while (body.firstChild)
+        body.removeChild(body.firstChild);
+
+    var text = document.createTextNode(error);
+    var cell = document.createElement("td");
+    var row = document.createElement("tr");
+
+    cell.className = "error";
+    cell.colSpan = "6";
+    cell.appendChild(text);
+    row.appendChild(cell);
+    body.appendChild(row);
+}
+
+function getParameterByName(name, url) {
+    /* From https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript */
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function update() {
+    var addr = getParameterByName("addr");
+    if (addr == null) {
+        render_error("Please specify an address in the query string.");
+    } else {
+        var request = new XMLHttpRequest();
+
+        request.onreadystatechange = function () {
+            if (request.readyState == XMLHttpRequest.DONE) {
+                if (request.status == 200) {
+                    render(JSON.parse(request.responseText));
+                } else {
+                    render_error("Server responded with response code" + request.status);
+                }
+            }
+        };
+
+        request.open("GET", "https://api.ethermine.org/miner/:" + addr + "/workers", true);
+        request.send();
+    }
+}
+
+window.onload = function () {
+    update();
+    setInterval(update, 10 * 1000);
+};
+</script>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>Worker</th>
+            <th>Current Hashrate</th>
+            <th>Average Hashrate</th>
+            <th>Valid Shares</th>
+            <th>Stale Shares</th>
+            <th class="large">Last Seen</th>
+        </tr>
+    </thead>
+    <tbody id="data">
+        <tr>
+            <td colspan="6">Loading...</td>
+        </tr>
+    </tbody>
+</table>
+<div id="last"></div>
+<div id="msg">updates every 10 seconds</div>
+</body>
