@@ -10,14 +10,17 @@ head, body {
 
     background-color: black;
     color: white;
+
+    width: 1821px;
+    height: 515px;
+    margin: 8px;
+    padding: 0;
 }
 table {
     border-collapse: collapse;
     display: inline;
 }
 th, td {
-    width: 96px;
-    height: 96px;
     padding: 0px;
 
     border: solid black;
@@ -28,19 +31,29 @@ th, td {
 
     text-align: center;
 }
-thead th {
+.header {
+    width: 96px;
+    height: 96px;
+
     font-size: 64px;
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: 2px;
 }
-tbody th {
+th {
     font-size: 20px;
 }
-tbody td {
+td {
     vertical-align: bottom;
+    width: 96px;
     height: 86px;
     padding-bottom: 10px;
 }
+#disclaimer td {
+    height: auto;
+    font-size: 16px;
+    padding: 10px;
+}
+
 
 .empty {
     border: none;
@@ -48,11 +61,11 @@ tbody td {
 .veiled {
     box-shadow: inset 0px 0px 0px 2px #333;
 }
-.veiled:before {
+.veiled:after {
     content: " veiled ";
-    -webkit-text-stroke-color: #333;
+    /*-webkit-text-stroke-color: #333;
     -webkit-text-stroke-width: 0.75px;
-    text-shadow: 0px 0px 2px white;
+    text-shadow: 0px 0px 2px white;*/
 }
 
 .league:before {
@@ -88,7 +101,6 @@ tbody td {
     -webkit-text-stroke-width: 0.75px;
     text-shadow: 0px 0px 2px white;
 }
-https://hsun324.github.io/poe/betrayal/index.html
 .stash {
     box-shadow: inset 0px 0px 0px 2px #333;
 }
@@ -265,160 +277,129 @@ https://hsun324.github.io/poe/betrayal/index.html
     background: url("assets/i_silver.png") 50% / 60% no-repeat;
 }
 
-#disclaimer td {
-    font-size: 16px;
+.c_trans {
+    background: url('assets/c_trans.png') 50% no-repeat;
 }
-
+.c_fortif {
+    background: url('assets/c_fortif.png') 50% no-repeat;
+}
+.c_research {
+    background: url('assets/c_research.png') 50% no-repeat;
+}
+.c_inter {
+    background: url('assets/c_inter.png') 50% no-repeat;
+}
 </style>
 </head>
 <body>
     <table>
-        <thead>
-            <tr>
-                <th class="empty"></th>
-                <th style="background: url('assets/c_trans.png')">T</th>
-                <th style="background: url('assets/c_fortif.png')">F</th>
-                <th style="background: url('assets/c_research.png')">R</th>
-                <th style="background: url('assets/c_inter.png')">I</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="member">
-                <th>Aisling</th>
-                <td class="veiled sword"></td>
-                <td class="veiled body"></td>
-                <td class="veiled mod"></td>
-                <td class="veiled acc"></td>
-            </tr>
-            <tr class="member">
-                <th>Cameria</th>
-                <td class="league unique"></td>
-                <td class="drops currency harbinger"></td>
-                <td class="drops currency sextant"></td>
-                <td class="scarab">delve</td>
-            </tr>
-            <tr class="member">
-                <th>Elreon</th>
-                <td class="unique sword"></td>
-                <td class="unique body"></td>
-                <td class="unique acc"></td>
-                <td class="scarab"><span style="font-size:70%">reliquary</span></td>
-            </tr>
-            <tr class="member">
-                <th>Gravicius</th>
-                <td class="card">stack</td>
-                <td class="drops card"></td>
-                <td class="card">swap</td>
-                <td class="scarab"><span style="font-size:62%">divination</span></td>
-            </tr>
-            <tr class="member">
-                <th>Guff</th>
-                <td class="craft chaos"></td>
-                <td class="craft essence"></td>
-                <td class="craft alch"></td>
-                <td class="craft alt"></td>
-            </tr>
-            <tr class="member">
-                <th>Haku</th>
-                <td class="basic stash"></td>
-                <td class="strongbox"></td>
-                <td class="quality"></td>
-                <td class="scarab"><span style="font-size:90%">ambush</span></td>
-            </tr>
-            <tr class="member">
-                <th>Hillock</th>
-                <td class="sword quality"></td>
-                <td class="body quality"></td>
-                <td class="flask quality"></td>
-                <td class="map quality"></td>
-            </tr>
-            <tr class="member">
-                <th>It That Fled</th>
-                <td class="drops breach splinter"></td>
-                <td class="drops abyss abjewel"></td>
-                <td class="breach breachstone"><span style="font-size:80%">upgrade</span></td>
-                <td class="scarab">breach</td>
-            </tr>
-            <tr class="member">
-                <th>Janus</th>
-                <td class="drops currency chisel"></td>
-                <td class="currency mirror shards"></td>
-                <td class="drops currency coins"></td>
-                <td class="scarab"><span style="font-size:70%">perandus</span></td>
-            </tr>
-        </tbody>
-    </table>
-    <table>
-        <thead>
-            <tr>
-                <th class="empty"></th>
-                <th style="background: url('assets/c_trans.png')">T</th>
-                <th style="background: url('assets/c_fortif.png')">F</th>
-                <th style="background: url('assets/c_research.png')">R</th>
-                <th style="background: url('assets/c_inter.png')">I</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="member">
-                <th>Jorgin</th>
-                <td class="drop talisman rare"></td>
-                <td class="bestiary rare"></td>
-                <td class="talisman"><span style="font-size:80%">convert</span></td>
-                <td class="bestiary scarab"></td>
-            </tr>
-            <tr class="member">
-                <th>Korell</th>
-                <td class="drops essence currency"></td>
-                <td class="drops fragment"></td>
-                <td class="drops fossil currency"></td>
-                <td class="scarab">elder</td>
-            </tr>
-            <tr class="member">
-                <th>Leo</th>
-                <td class="drops silver currency"></td>
-                <td class="drops currency mirror"></td>
-                <td class="currency ex">use</td>
-                <td class="scarab"><span style="font-size:80%">torment</span></td>
-            </tr>
-            <tr class="member">
-                <th>Riker</th>
-                <td class="basic">pick one</td>
-                <td class="basic">pick one</td>
-                <td class="basic">pick one</td>
-                <td class="basic">pick one</td>
-            </tr>
-            <tr class="member">
-                <th>Rin</th>
-                <td class="drops basic map"></td>
-                <td class="map rare"></td>
-                <td class="map unique"></td>
-                <td class="scarab">map</td>
-            </tr>
-            <tr class="member">
-                <th>Tora</th>
-                <td class="basic">timed stash</td>
-                <td class="rare"><span style="font-size:60%">enchanted</span><br></td>
-                <td class="gem">+exp</td>
-                <td class="scarab"><span style="font-size:70%">harbinger</span></td>
-            </tr>
-            <tr class="member">
-                <th>Vagan</th>
-                <td class="rare sword"></td>
-                <td class="rare body"></td>
-                <td class="rare acc"></td>
-                <td class="rare jewel"></td>
-            </tr>
-            <tr class="member">
-                <th>Vorici</th>
-                <td class="gem quality"></td>
-                <td class="drops currency fusing"></td>
-                <td class="currency">white sockets</td>
-                <td class="scarab">shaper</td>
-            </tr>
-            <tr id="disclaimer">
-                <td colspan="5">* Janus and Leo are not guaranteed to drop mirrors or mirror shards.</td>
-            </tr>
-        </tbody>
+        <tr>
+            <th class="empty"></th>
+            <th>Aisling</th>
+            <th>Cameria</th>
+            <th>Elreon</th>
+            <th>Gravicius</th>
+            <th>Guff</th>
+            <th>Haku</th>
+            <th>Hillock</th>
+            <th>It That Fled</th>
+            <th>Janus</th>
+            <th>Jorgin</th>
+            <th>Korell</th>
+            <th>Riker</th>
+            <th>Leo</th>
+            <th>Rin</th>
+            <th>Tora</th>
+            <th>Vagan</th>
+            <th>Vorici</th>
+        </tr>
+        <tr>
+            <th class="header c_trans" title="Transportation">T</th>
+            <td class="veiled sword" title="drops veiled weapons"></td>
+            <td class="league unique" title="drops league-specific uniques"></td>
+            <td class="unique sword" title="drops unique weapons"></td>
+            <td class="card" title="drops full stack(s) of divination cards">stack</td>
+            <td class="craft chaos" title="limited time craft using an orb of alchemy, chaos orbs, and exalted orbs"></td>
+            <td class="basic stash" title="a safehouse stash"></td>
+            <td class="sword quality" title="set the quality of a weapon to 24%/26%/28%"></td>
+            <td class="drops breach splinter" title="drops breach splinters"></td>
+            <td class="drops currency chisel" title="drops quality currency"></td>
+            <td class="drop talisman rare" title="drops a rare corrupted talisman"></td>
+            <td class="drops essence currency" title="drops essences"></td>
+            <td class="drops silver currency" title="drops silver coins"></td>
+            <td class="basic" title="pick one item from a set of a few options">pick one</td>
+            <td class="drops basic map" title="drops a normal map"></td>
+            <td class="stash" title="pick one item from a timed stash">timed</td>
+            <td class="rare sword" title="drops rare weapon(s)"></td>
+            <td class="gem quality" title="set the quality of a gem to 24%/26%/28%"></td>
+        </tr>
+        <tr>
+            <th class="header c_fortif" title="Fortification">F</th>
+            <td class="veiled body" title="drops veiled armour"></td>
+            <td class="drops currency harbinger" title="drops harbinger orbs and orbs of horizons"></td>
+            <td class="unique body" title="drops unique armour"></td>
+            <td class="drops card" title="drops divination cards"></td>
+            <td class="craft essence" title="limited time craft using essences, orbs of scouring, and exalted orbs"></td>
+            <td class="strongbox" title="contains a strongbox"></td>
+            <td class="body quality" title="set the quality of a piece of armour to 24%/26%/28%"></td>
+            <td class="drops abyss abjewel" title="drops abyss jewels"></td>
+            <td class="currency mirror shards" title="drops currency shards"></td>
+            <td class="bestiary rare" title="drops a random rare item with a bestiary aspect craft"></td>
+            <td class="drops fragment" title="drops a map fragment"></td>
+            <td class="drops currency mirror" title="drops random currency"></td>
+            <td class="basic" title="pick one item from a set of a few options">pick one</td>
+            <td class="map rare" title="drops a rare map"></td>
+            <td class="rare" title="drops a random enchanted rare item"><span style="font-size:60%">enchanted</span><br></td>
+            <td class="rare body" title="drops rare armour"></td>
+            <td class="drops currency fusing" title="drops currency that affect item sockets"></td>
+        </tr>
+        <tr>
+            <th class="header c_research" title="Research">R</th>
+            <td class="veiled mod" title="add a veiled mod to an item (with a chance to add a second at rank 2/3)">add</td>
+            <td class="drops currency sextant" title="drops sextants"></td>
+            <td class="unique acc" title="drops a unique accessory"></td>
+            <td class="card" title="sacrifice a divination card for another one">swap</td>
+            <td class="craft alch" title="limited time craft using an orb of alchemy and exalted orbs"></td>
+            <td class="quality" title="add quality to items"></td>
+            <td class="flask quality" title="set the quality of a flask to 24%/26%/28%"></td>
+            <td class="breach breachstone" title="upgrade a breachstone to a pure breachstone"><span style="font-size:80%">upgrade</span></td>
+            <td class="drops currency coins" title="drops perandus coins"></td>
+            <td class="talisman" title="converts an existing rare amulet to a talisman, replacing the implict and corrupting it"><span style="font-size:80%">convert</span></td>
+            <td class="drops fossil currency" title="drops fossils"></td>
+            <td class="currency ex" title="use a blessed orb/chaos orb/exalted orb on an item">use</td>
+            <td class="basic" title="pick one item from a set of a few options">pick one</td>
+            <td class="map unique" title="drop a unique map"></td>
+            <td class="gem" title="add 20m/70m/200m experience to a gem">+exp</td>
+            <td class="rare acc" title="drops rare accessories"></td>
+            <td class="currency" title="sets the colors of 1/2/3 sockets to white on an item without corrupting it">white sockets</td>
+        </tr>
+        <tr>
+            <th class="header c_inter">I</th>
+            <td class="veiled acc" title="drops veiled accessories"></td>
+            <td class="scarab" title="drops a sulfuric scarab">delve</td>
+            <td class="scarab" title="drops a reliquary scarab"><span style="font-size:70%">reliquary</span></td>
+            <td class="scarab" title="drops a divination scarab"><span style="font-size:62%">divination</span></td>
+            <td class="craft alt" title="limited time craft using an orb of transmutation, orbs of alteration, a regal orb, and exalted orbs"></td>
+            <td class="scarab" title="drops an ambush scarab"><span style="font-size:90%">ambush</span></td>
+            <td class="map quality" title="set the quality of a map to 25%/30%/35%"></td>
+            <td class="scarab" title="drops a breach scarab">breach</td>
+            <td class="scarab" title="drops a perandus scarab"><span style="font-size:70%">perandus</span></td>
+            <td class="bestiary scarab" title="drops a bestiary scarab"></td>
+            <td class="scarab" title="drops an elder scarab">elder</td>
+            <td class="scarab" title="drops a torment scarab"><span style="font-size:80%">torment</span></td>
+            <td class="basic" title="pick one item from a set of a few options">pick one</td>
+            <td class="scarab" title="drops a cartography scarab">map</td>
+            <td class="scarab" title="drops a harbinger scarab"><span style="font-size:70%">harbinger</span></td>
+            <td class="rare jewel" title="drops rare jewels"></td>
+            <td class="scarab" title="drops a shaper scarab">shaper</td>
+        </tr>
+        <tr id="disclaimer">
+            <td colspan="18">
+                Syndicate members provide various rewards when you defeat them in the Syndicate Hideout depending on which branch of the syndicate they are in.
+                Hover over the reward summary to see more details about each reward. <br>
+                <span style="color: #999">* Janus and Leo are not guaranteed to drop mirrors or mirror shards.</span>
+            </td>
+        </tr>
     </table>
 </body>
 </html>
