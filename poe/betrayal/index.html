@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Betrayal Guide</title>
+<style type="text/css">
+head, body {
+    font-family: Fontin;
+    font-size: 32px;
+    line-height: 80%;
+
+    background-color: black;
+    color: white;
+}
+table {
+    border-collapse: collapse;
+    display: inline;
+}
+th, td {
+    width: 96px;
+    height: 96px;
+    padding: 0px;
+
+    border: solid black;
+    border-width: 6px 5px;
+
+    font-variant: small-caps;
+    font-weight: bold;
+
+    text-align: center;
+}
+thead th {
+    font-size: 64px;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 2px;
+}
+tbody th {
+    font-size: 20px;
+}
+tbody td {
+    vertical-align: bottom;
+    height: 86px;
+    padding-bottom: 10px;
+}
+
+.empty {
+    border: none;
+}
+.veiled {
+    box-shadow: inset 0px 0px 0px 2px #333;
+}
+.veiled:before {
+    content: " veiled ";
+    -webkit-text-stroke-color: #333;
+    -webkit-text-stroke-width: 0.75px;
+    text-shadow: 0px 0px 2px white;
+}
+
+.league:before {
+    content: " league ";
+    -webkit-text-stroke-color: goldenrod;
+    -webkit-text-stroke-width: 0.75px;
+    text-shadow: 0px 0px 2px white;
+}
+.unique {
+    box-shadow: inset 0px 0px 0px 2px rgb(175, 96, 37);
+}
+.unique:after {
+    content: " unique ";
+    -webkit-text-stroke-color: rgb(175, 96, 37);
+    -webkit-text-stroke-width: 0.75px;
+    text-shadow: 0px 0px 2px white;
+}
+
+.bestiary {
+    box-shadow: inset 0px 0px 0px 2px #333;
+}
+.bestiary:before {
+    content: " bestiary ";
+    font-size: 80%;
+}
+
+.scarab {
+    box-shadow: inset 0px 0px 0px 2px #56B35C;
+}
+.scarab:after {
+    content: " scarab ";
+    -webkit-text-stroke-color: #56B35C;
+    -webkit-text-stroke-width: 0.75px;
+    text-shadow: 0px 0px 2px white;
+}
+
+.stash {
+    box-shadow: inset 0px 0px 0px 2px #333;
+}
+.stash:after {
+    content: " stash ";
+    -webkit-text-stroke-color: #333;
+    -webkit-text-stroke-width: 0.75px;
+    text-shadow: 0px 0px 2px white;
+}
+
+.strongbox {
+    box-shadow: inset 0px 0px 0px 2px #333;
+}
+.strongbox:after {
+    content: " strongbox ";
+    font-size: 20px;
+    -webkit-text-stroke-color: #333;
+    -webkit-text-stroke-width: 0.75px;
+    text-shadow: 0px 0px 2px white;
+}
+
+.breach {
+    box-shadow: inset 0px 0px 0px 2px rgb(130, 25, 255);
+}
+.abyss {
+    box-shadow: inset 0px 0px 0px 2px rgb(131, 181, 40);
+}
+.fragment {
+    box-shadow: inset 0px 0px 0px 2px rgb(40, 0, 105);
+}
+
+.gem {
+    background: url("assets/i_gem.png") 50% / 60% no-repeat;
+    box-shadow: inset 0px 0px 0px 2px rgb(30, 200, 200);
+}
+
+
+.quality {
+    box-shadow: inset 0px 0px 0px 2px #633;
+}
+.quality:after {
+    content: " quality ";
+    font-size: 30px;
+    -webkit-text-stroke-color: #633;
+    -webkit-text-stroke-width: 0.75px;
+    text-shadow: 0px 0px 2px white;
+}
+
+.basic {
+    box-shadow: inset 0px 0px 0px 2px #333;
+}
+.currency, .craft {
+    box-shadow: inset 0px 0px 0px 2px goldenrod;
+}
+.craft:after {
+    content: " craft ";
+    -webkit-text-stroke-color: #806304;
+    -webkit-text-stroke-width: 0.75px;
+    text-shadow: 0px 0px 2px white;
+}
+
+.sword {
+    background: url("assets/i_sword.png") 50% / 60% no-repeat;
+}
+.body {
+    background: url("assets/i_body.png") 50% / 60% no-repeat;
+}
+.acc {
+    background: url("assets/i_acc.png") 50% / 60% no-repeat;
+}
+.flask {
+    background: url("assets/i_flask.png") 50% / 40% no-repeat;
+}
+.map {
+    background: url("assets/i_map.png") 50% / 70% no-repeat;
+}
+.jewel {
+    background: url("assets/i_jewel.png") 50% / 60% no-repeat;
+}
+
+.harbinger {
+    background: url("assets/i_harb.png") 50% / 60% no-repeat;
+}
+.sextant {
+    background: url("assets/i_sextant.png") 50% / 60% no-repeat;
+}
+
+.card {
+    box-shadow: inset 0px 0px 0px 2px #666;
+}
+.card {
+    background: url("assets/i_card.png") 50% / 50% no-repeat;
+}
+
+.chaos {
+    background: url("assets/i_chaos.png") 50% / 60% no-repeat;
+}
+.fusing {
+    background: url("assets/i_fusing.png") 50% / 60% no-repeat;
+}
+.ex {
+    background: url("assets/i_ex.png") 50% / 60% no-repeat;
+}
+.essence {
+    background: url("assets/i_essence.png") 50% / 60% no-repeat;
+}
+.alch {
+    background: url("assets/i_alch.png") 50% / 60% no-repeat;
+}
+.alt {
+    background: url("assets/i_alt.png") 50% / 60% no-repeat;
+}
+.chisel {
+    background: url("assets/i_chisel.png") 50% / 60% no-repeat;
+}
+.coins {
+    background: url("assets/i_coin.png") 50% / 60% no-repeat;
+}
+.fragment {
+    background: url("assets/i_fragment.png") 50% / 60% no-repeat;
+}
+
+.splinter {
+    background: url("assets/i_splinter.png") 50% / 60% no-repeat;
+}
+.breachstone {
+    background: url("assets/i_breachstone.png") 50% / 60% no-repeat;
+}
+
+.abjewel {
+    background: url("assets/i_abjewel.png") 50% / 60% no-repeat;
+}
+
+.talisman {
+    background: url("assets/i_talisman.png") 50% / 60% no-repeat;
+    box-shadow: inset 0px 0px 0px 2px rgba(0, 240, 190);
+}
+
+
+.fossil {
+    background: url("assets/i_fossil.png") 50% / 60% no-repeat;
+}
+
+.silver {
+    background: url("assets/i_silver.png") 50% / 60% no-repeat;
+}
+
+</style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th class="empty"></th>
+                <th style="background: url('assets/c_trans.png')">T</th>
+                <th style="background: url('assets/c_fortif.png')">F</th>
+                <th style="background: url('assets/c_research.png')">R</th>
+                <th style="background: url('assets/c_inter.png')">I</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="member">
+                <th>Aisling</th>
+                <td class="veiled sword"></td>
+                <td class="veiled body"></td>
+                <td class="veiled mod"></td>
+                <td class="veiled acc"></td>
+            </tr>
+            <tr class="member">
+                <th>Cameria</th>
+                <td class="league unique"></td>
+                <td class="currency harbinger"></td>
+                <td class="currency sextant"></td>
+                <td class="scarab">delve</td>
+            </tr>
+            <tr class="member">
+                <th>Elreon</th>
+                <td class="unique sword"></td>
+                <td class="unique body"></td>
+                <td class="unique acc"></td>
+                <td class="scarab"><span style="font-size:70%">reliquary</span></td>
+            </tr>
+            <tr class="member">
+                <th>Gravicius</th>
+                <td class="card">stack</td>
+                <td class="card"></td>
+                <td class="card">swap</td>
+                <td class="scarab"><span style="font-size:62%">divination</span></td>
+            </tr>
+            <tr class="member">
+                <th>Guff</th>
+                <td class="craft chaos"></td>
+                <td class="craft essence"></td>
+                <td class="craft alch"></td>
+                <td class="craft alt"></td>
+            </tr>
+            <tr class="member">
+                <th>Haku</th>
+                <td class="stash"></td>
+                <td class="strongbox"></td>
+                <td class="quality"></td>
+                <td class="scarab"><span style="font-size:90%">ambush</span></td>
+            </tr>
+            <tr class="member">
+                <th>Hillock</th>
+                <td class="sword quality"></td>
+                <td class="body quality"></td>
+                <td class="flask quality"></td>
+                <td class="map quality"></td>
+            </tr>
+            <tr class="member">
+                <th>It That Fled</th>
+                <td class="breach splinter"></td>
+                <td class="abyss abjewel"></td>
+                <td class="breach breachstone"><span style="font-size:80%">upgrade</span></td>
+                <td class="scarab">breach</td>
+            </tr>
+            <tr class="member">
+                <th>Janus</th>
+                <td class="currency chisel"></td>
+                <td class="currency chaos">shards</td>
+                <td class="currency coins"></td>
+                <td class="scarab"><span style="font-size:70%">perandus</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th class="empty"></th>
+                <th style="background: url('assets/c_trans.png')">T</th>
+                <th style="background: url('assets/c_fortif.png')">F</th>
+                <th style="background: url('assets/c_research.png')">R</th>
+                <th style="background: url('assets/c_inter.png')">I</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="member">
+                <th>Jorgin</th>
+                <td class="talisman"></td>
+                <td class="bestiary currency">rare</td>
+                <td class="talisman"><span style="font-size:80%">convert</span></td>
+                <td class="bestiary scarab"></td>
+            </tr>
+            <tr class="member">
+                <th>Korell</th>
+                <td class="essence currency"></td>
+                <td class="fragment"></td>
+                <td class="fossil currency"></td>
+                <td class="scarab">elder</td>
+            </tr>
+            <tr class="member">
+                <th>Leo</th>
+                <td class="silver currency"></td>
+                <td class="currency chaos"></td>
+                <td class="currency ex">use</td>
+                <td class="scarab"><span style="font-size:80%">torment</span></td>
+            </tr>
+            <tr class="member">
+                <th>Riker</th>
+                <td class="basic">pick one</td>
+                <td class="basic">pick one</td>
+                <td class="basic">pick one</td>
+                <td class="basic">pick one</td>
+            </tr>
+            <tr class="member">
+                <th>Rin</th>
+                <td class="basic map"></td>
+                <td class="map currency">rare</td>
+                <td class="map unique"></td>
+                <td class="scarab">map</td>
+            </tr>
+            <tr class="member">
+                <th>Tora</th>
+                <td class="basic">timed stash</td>
+                <td class="basic"><span style="font-size:60%">enchanted</span></td>
+                <td class="gem">+exp</td>
+                <td class="scarab"><span style="font-size:70%">harbinger</span></td>
+            </tr>
+            <tr class="member">
+                <th>Vagan</th>
+                <td class="currency sword">rare</td>
+                <td class="currency body">rare</td>
+                <td class="currency acc">rare</td>
+                <td class="currency jewel">rare</td>
+            </tr>
+            <tr class="member">
+                <th>Vorici</th>
+                <td class="gem quality"></td>
+                <td class="currency fusing"></td>
+                <td class="currency">white sockets</td>
+                <td class="scarab">shaper</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
