@@ -5,51 +5,56 @@
 <style type="text/css">
 /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
 @font-face {
-    font-family: 'FontinWeb';
+    font-family: 'Fontin';
+    src: local('Fontin Regular'), local('Fontin-Regular'),
+        url('assets/Fontin-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fontin';
     src: local('Fontin Italic'), local('Fontin-Italic'),
         url('assets/Fontin-Italic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
 }
 @font-face {
-    font-family: 'FontinWeb';
+    font-family: 'Fontin';
     src: local('Fontin Bold'), local('Fontin-Bold'),
         url('assets/Fontin-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 @font-face {
-    font-family: 'FontinWeb';
+    font-family: 'Fontin';
     src: local('Fontin SmallCaps'), local('Fontin-SmallCaps'),
         url('assets/Fontin-SmallCaps.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-variant: small-caps;
 }
-@font-face {
-    font-family: 'FontinWeb';
-    src: local('Fontin Regular'), local('Fontin-Regular'),
-        url('assets/Fontin-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 head, body {
-    font-family: FontinWeb;
+    font-family: Fontin;
+    font-variant: small-caps;
     font-size: 32px;
     line-height: 80%;
 
     background-color: black;
     color: white;
 
-    width: 1821px;
-    height: 515px;
-    margin: 8px;
+    margin: 8px 0;
     padding: 0;
+    width: 100%;
+}
+h1 {
+    font-size: 150%;
+    text-align: center;
 }
 table {
     border-collapse: collapse;
-    display: inline;
+    width: 1821px;
+    height: 515px;
+    margin: auto;
 }
 th, td {
     padding: 0px;
@@ -57,8 +62,8 @@ th, td {
     border: solid black;
     border-width: 6px 5px;
 
-    font-variant: small-caps;
     font-weight: bold;
+    font-variant: small-caps;
 
     text-align: center;
 }
@@ -327,6 +332,7 @@ a {
 </style>
 </head>
 <body>
+    <h1>Betrayal Syndicate Rewards</h1>
     <table>
         <tr>
             <th class="empty"></th>
